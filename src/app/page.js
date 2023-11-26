@@ -1,7 +1,4 @@
 import Greeting from '@/components/Greeting';
-import { StyledLink } from '@/components/Greeting';
-//import Image from 'next/image';
-import Link from 'next/link';
 //import StyledComponentsRegistry from './lib/registry';
 //import { GameCard } from '@/components/GameCard/GameCard';
 import GamesList from '@/components/GamesList/GamesList';
@@ -19,16 +16,21 @@ import { getGames } from '@/actions/getGames';
 //   return gamesData;
 // }
 
-export default async function Home() {
+export default async function Home({ searchParams }) {
+  const { sortRating, sortRelease } = searchParams;
+
+  console.log({ searchParams });
   const initialGamesData = await getGames();
 
   return (
     <main>
       {/* <StyledComponentsRegistry> */}
       <Greeting>RAWG Games</Greeting>
-      <Link href='/game'>Simple Link</Link>
-      <StyledLink href='/game'>Styled Link </StyledLink>
-      <GamesList initialGames={initialGamesData} />
+      <GamesList
+        sortRating={sortRating}
+        sortRelease={sortRelease}
+        initialGames={initialGamesData}
+      />
       {/* </StyledComponentsRegistry> */}
     </main>
   );
