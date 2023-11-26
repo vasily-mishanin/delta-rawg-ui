@@ -4,6 +4,7 @@ import Greeting from '@/components/Greeting';
 import GamesList from '@/components/GamesList/GamesList';
 import { fetchGames } from '@/actions/fetchGames';
 import { fetchPlatforms } from '@/actions/fetchPlatforms';
+//import { SearchInput } from '@/components/SearchInput/SearchInput';
 
 // async function getGames() {
 //   console.log('GET GAMES');

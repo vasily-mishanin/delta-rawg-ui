@@ -54,10 +54,13 @@ const OptionsContainer = styled.div`
   display: none;
   flex-direction: column;
   gap: 0.5rem;
+  background: lightgray;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #ccc;
   border-top: none;
   border-radius: 0 0 2px 2px;
+  max-height: 20rem;
+  overflow: auto;
 `;
 
 const Option = styled.div`
