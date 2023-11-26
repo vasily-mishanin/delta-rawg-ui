@@ -2,7 +2,8 @@ import Greeting from '@/components/Greeting';
 //import StyledComponentsRegistry from './lib/registry';
 //import { GameCard } from '@/components/GameCard/GameCard';
 import GamesList from '@/components/GamesList/GamesList';
-import { getGames } from '@/actions/getGames';
+import { fetchGames } from '@/actions/fetchGames';
+import { fetchPlatforms } from '@/actions/fetchPlatforms';
 
 // async function getGames() {
 //   console.log('GET GAMES');
@@ -19,8 +20,8 @@ import { getGames } from '@/actions/getGames';
 export default async function Home({ searchParams }) {
   const { sortRating, sortRelease } = searchParams;
 
-  console.log({ searchParams });
-  const initialGamesData = await getGames();
+  const initialGamesData = await fetchGames();
+  const platforms = await fetchPlatforms();
 
   return (
     <main>
@@ -30,6 +31,7 @@ export default async function Home({ searchParams }) {
         sortRating={sortRating}
         sortRelease={sortRelease}
         initialGames={initialGamesData}
+        platforms={platforms}
       />
       {/* </StyledComponentsRegistry> */}
     </main>
