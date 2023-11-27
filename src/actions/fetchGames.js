@@ -18,9 +18,11 @@ export async function fetchGames(options = {}) {
 
   try {
     const response = await fetch(gamesURL); // { cache: 'no-cache' }
+
     if (!response.ok) {
       return null;
     }
+
     const data = await response.json();
     const gamesData = data.results.map((game) => {
       const { id, name, background_image, rating, released, platforms } = game;
