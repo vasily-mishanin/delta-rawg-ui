@@ -1,4 +1,4 @@
-import Greeting from '@/components/Greeting';
+import Greeting from '@/components/Common';
 import { Games } from '@/components/containers/Games/Games';
 import { fetchGames } from '@/actions/fetchGames';
 import { fetchPlatforms } from '@/actions/fetchPlatforms';
@@ -11,7 +11,7 @@ export default async function Home({ searchParams }) {
 
   return (
     <main>
-      <Greeting>RAWG Games</Greeting>
+      <Greeting>RAWG Games UI</Greeting>
       <Games
         sortRating={sortRating}
         sortRelease={sortRelease}

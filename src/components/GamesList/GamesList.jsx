@@ -19,6 +19,13 @@ export function GamesList({ games }) {
 const _List = styled.ul`
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 767px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
 const _ListItem = styled.ul`

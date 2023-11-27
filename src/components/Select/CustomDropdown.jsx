@@ -23,6 +23,12 @@ export const CustomDropdown = ({ filterItem, options, onSelect }) => {
       <OptionsContainer
         style={{ display: isDropdownVisible ? 'flex' : 'none' }}
       >
+        <Option
+          key='null-option'
+          onClick={() => handleSelect(null, `Select ${filterItem}`)}
+        >
+          - reset filter -
+        </Option>
         {options.map((option) => (
           <Option
             key={option.name}
@@ -37,10 +43,11 @@ export const CustomDropdown = ({ filterItem, options, onSelect }) => {
 };
 
 const CustomDropdownContainer = styled.div`
+  width: 15rem;
   position: relative;
   display: inline-block;
-  background-color: gray;
-  width: 15rem;
+  background-color: #192655;
+  color: #fff6f6;
 `;
 
 const SelectedOption = styled.div`
@@ -48,9 +55,11 @@ const SelectedOption = styled.div`
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  border: none;
 `;
 
 const OptionsContainer = styled.div`
+  width: 100%;
   position: absolute;
   display: none;
   flex-direction: column;
@@ -69,7 +78,7 @@ const Option = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: #f0f0f0;
-    color: #2b2a4c;
+    background-color: #192655;
+    color: #fff6f6;
   }
 `;
