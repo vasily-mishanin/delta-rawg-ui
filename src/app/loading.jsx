@@ -1,4 +1,10 @@
+import { Spinner } from '@/components/Spinner/Spinner';
+
 function loading() {
-  return <div>⏳...</div>;
+  return (
+    <>
+      <Spinner />.
+    </>
+  );
 }
 export default loading;

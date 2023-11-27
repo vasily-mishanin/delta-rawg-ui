@@ -123,20 +123,29 @@ const _Content = styled.div`
   }
 `;
 
-const _ArrowLeft = styled.span`
-  opacity: ${(props) => (props.$currentIndex <= 0 ? 0.5 : 1)};
+const _ArrowLeft = styled.button`
   position: absolute;
   display: block;
   width: 30px;
-  color: #e48f45;
+  height: 100%;
+
+  background-color: transparent;
+  border: none;
 
   top: 50%;
   transform: translateY(-50%);
-  left: 5px;
+  left: 0;
   z-index: 5;
+
+  svg {
+    color: #e48f45;
+    opacity: ${(props) => (props.$currentIndex <= 0 ? 0.75 : 1)};
+  }
 
   &:hover {
     cursor: pointer;
+    background-color: gray;
+    opacity: 0.5;
 
     svg {
       scale: 1.1;
@@ -144,20 +153,30 @@ const _ArrowLeft = styled.span`
   }
 `;
 
-const _ArrowRight = styled.span`
-  opacity: ${(props) => (props.$currentIndex >= props.$length - 1 ? 0.5 : 1)};
+const _ArrowRight = styled.button`
   position: absolute;
   display: block;
   width: 30px;
-  color: #e48f45;
+  height: 100%;
+
+  background-color: transparent;
+  border: none;
 
   top: 50%;
   transform: translateY(-50%);
-  right: 5px;
+  right: 0;
   z-index: 5;
+
+  svg {
+    color: #e48f45;
+    opacity: ${(props) =>
+      props.$currentIndex >= props.$length - 1 ? 0.75 : 1};
+  }
 
   &:hover {
     cursor: pointer;
+    background-color: gray;
+    opacity: 0.5;
 
     svg {
       scale: 1.1;

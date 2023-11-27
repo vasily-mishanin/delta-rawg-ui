@@ -13,7 +13,7 @@ export async function fetchPlatforms() {
     }));
     return platforms;
   } catch (error) {
-    console.log('Erorr fetching Platforms: ', error);
+    console.error('Erorr fetching Platforms: ', error);
     return null;
   }
 }

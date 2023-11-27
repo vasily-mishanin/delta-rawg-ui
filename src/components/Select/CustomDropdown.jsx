@@ -56,6 +56,10 @@ const SelectedOption = styled.div`
   border: 1px solid #ccc;
   border-radius: 4px;
   border: none;
+
+  &:hover {
+    opacity: 0.75;
+  }
 `;
 
 const OptionsContainer = styled.div`
@@ -64,7 +68,7 @@ const OptionsContainer = styled.div`
   display: none;
   flex-direction: column;
   gap: 0.5rem;
-  background: lightgray;
+  background: #265073;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #ccc;
   border-top: none;

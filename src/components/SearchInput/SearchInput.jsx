@@ -8,7 +8,6 @@ export function SearchInput({ placeholder, onSearch }) {
 
   const handleChange = (event) => {
     const value = event.target.value;
-    console.log('handleChange', value);
     if (!value) {
       onSearch(null);
     }
@@ -40,7 +39,7 @@ const Wrapper = styled.div`
   height: 2.5rem;
   display: flex;
 
-  border: 1px solid lightgray;
+  border: 1px solid #192655;
   border-radius: 0.15rem;
 `;
 
@@ -59,8 +58,8 @@ const _SearchButton = styled.button`
   padding: 0.25rem;
   border: none;
   border-radius: 0;
-  border-top-right-radius: 0.1rem;
-  border-bottom-right-radius: 0.1rem;
+  border-top-right-radius: 0.05rem;
+  border-bottom-right-radius: 0.05rem;
 
   display: flex;
   justify-content: center;
