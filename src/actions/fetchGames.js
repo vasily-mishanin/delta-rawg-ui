@@ -14,8 +14,6 @@ export async function fetchGames(options = {}) {
     gamesURL += `&search=${encodeURIComponent(gameName)}`;
   }
 
-  console.log({ gamesURL });
-
   try {
     const response = await fetch(gamesURL); // { cache: 'no-cache' }
 

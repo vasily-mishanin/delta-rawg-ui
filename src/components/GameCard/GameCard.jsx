@@ -6,7 +6,12 @@ import Image from 'next/image';
 export function GameCard({ name, background_image, rating, released }) {
   return (
     <Wrapper>
-      <Image src={background_image} width={200} height={150} alt={name} />
+      <Image
+        src={background_image}
+        width={330}
+        height={(330 * 3) / 4}
+        alt={name}
+      />
       <Title>{name}</Title>
       <Rating>{rating}</Rating>
       <ReleaseDate>{released}</ReleaseDate>

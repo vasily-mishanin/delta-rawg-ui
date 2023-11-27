@@ -14,12 +14,14 @@ export default Greeting;
 
 export const Wrapper = styled.section`
   padding: 2em 4rem;
-  background: papayawhip;
+  background: #192655;
+  margin-bottom: 1rem;
 `;
+
 export const Title = styled.h1`
   font-size: 1.5em;
   text-align: center;
-  color: #bf4f74;
+  color: #fff6f6;
 `;
 
 export const StyledLink = styled(Link)`
