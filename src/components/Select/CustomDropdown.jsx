@@ -40,6 +40,7 @@ const CustomDropdownContainer = styled.div`
   position: relative;
   display: inline-block;
   background-color: gray;
+  width: 15rem;
 `;
 
 const SelectedOption = styled.div`

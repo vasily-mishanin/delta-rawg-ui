@@ -2,10 +2,12 @@
 
 import { Slider } from '@/components/slider/slider';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 export function Game({ game, screenshots }) {
   return (
     <_Wtapper>
+      <Link href='/'>← Back to games</Link>
       <_GameTitle>{game.name}</_GameTitle>
       <Slider images={screenshots} gameName={game.name} />
       <_Description>{game.description}</_Description>

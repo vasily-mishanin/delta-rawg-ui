@@ -10,6 +10,7 @@ import { sortByDate } from '@/utils/sortByDate';
 import { CustomDropdown } from '../../Select/CustomDropdown';
 import { SearchInput } from '../../SearchInput/SearchInput';
 import { GamesList } from '../../GamesList/GamesList';
+import styled from 'styled-components';
 
 export function Games({ initialGames, platforms, sortRating, sortRelease }) {
   const [games, setGames] = useState(initialGames);
@@ -100,17 +101,25 @@ export function Games({ initialGames, platforms, sortRating, sortRelease }) {
   };
 
   return (
-    <>
-      <Link href='/?sortRating=ASC'>Rating ⬆️</Link>
-      <Link href='/?sortRating=DSC'>Rating ⬇️</Link>
-      <StyledLink href='/?sortRelease=ASC'> Release ⬆️</StyledLink>
-      <StyledLink href='/?sortRelease=DSC'> Release ⬇️</StyledLink>
-      <SearchInput placeholder='game name' onSearch={handleSearch} />
-      <CustomDropdown
-        filterItem='platform'
-        options={processedPlatforms}
-        onSelect={handlePlatformSelect}
-      />
+    <_Wrapper>
+      <_Controls>
+        <_ControlsFilter>
+          <SearchInput placeholder='game name' onSearch={handleSearch} />
+          <CustomDropdown
+            filterItem='platform'
+            options={processedPlatforms}
+            onSelect={handlePlatformSelect}
+          />
+        </_ControlsFilter>
+
+        <_ControlsSort>
+          <Link href='/?sortRating=ASC'>Rating ⬆️</Link>
+          <Link href='/?sortRating=DSC'>Rating ⬇️</Link>
+          <StyledLink href='/?sortRelease=ASC'> Release ⬆️</StyledLink>
+          <StyledLink href='/?sortRelease=DSC'> Release ⬇️</StyledLink>
+        </_ControlsSort>
+      </_Controls>
+
       <GamesList games={processedGames} />
       {noGames && <p>No more games</p>}
 
@@ -119,6 +128,30 @@ export function Games({ initialGames, platforms, sortRating, sortRelease }) {
           <Spinner />
         </div>
       )}
-    </>
+    </_Wrapper>
   );
 }
+
+const _Wrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const _Controls = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const _ControlsSort = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`;
+
+const _ControlsFilter = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+`;
