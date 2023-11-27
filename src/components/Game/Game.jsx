@@ -7,7 +7,7 @@ import Link from 'next/link';
 export function Game({ game, screenshots }) {
   return (
     <_Wtapper>
-      <Link href='/'>← Back to games</Link>
+      <_StyledLink href='/'>← Back to games</_StyledLink>
       <_GameTitle>{game.name}</_GameTitle>
       <Slider images={screenshots} gameName={game.name} />
       <_Description>{game.description}</_Description>
@@ -44,4 +44,9 @@ const _Website = styled.a`
   &:hover {
     color: #7752fe;
   }
+`;
+
+const _StyledLink = styled(Link)`
+  color: #190482;
+  font-size: 0.75rem;
 `;

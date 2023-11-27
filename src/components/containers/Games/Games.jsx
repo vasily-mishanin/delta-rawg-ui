@@ -69,7 +69,6 @@ export function Games({ initialGames, platforms, sortRating, sortRelease }) {
   };
 
   const handlePlatformSelect = async (id) => {
-    console.log('handlePlatformSelect ', id);
     const games = await fetchGames({
       platforms: id,
       gameName,
@@ -85,7 +84,6 @@ export function Games({ initialGames, platforms, sortRating, sortRelease }) {
   };
 
   const handleSearch = async (searchQuery) => {
-    console.log({ searchQuery });
     if (!searchQuery) {
       setGameName(null);
       return;
@@ -118,9 +116,9 @@ export function Games({ initialGames, platforms, sortRating, sortRelease }) {
         </_ControlsFilter>
 
         <_ControlsSort>
-          {(sortRating === 'ASC' || !sortRating) && (
+          {!sortRating && (
             <_StyledLink href='/?sortRating=DSC'>
-              <HandThumbUpIcon /> <ArrowDownIcon />
+              <HandThumbUpIcon />
             </_StyledLink>
           )}
           {sortRating === 'DSC' && (
@@ -128,15 +126,25 @@ export function Games({ initialGames, platforms, sortRating, sortRelease }) {
               <HandThumbUpIcon /> <ArrowUpIcon />
             </_StyledLink>
           )}
+          {sortRating === 'ASC' && (
+            <_StyledLink href='/?sortRating=DSC'>
+              <HandThumbUpIcon /> <ArrowDownIcon />
+            </_StyledLink>
+          )}
 
-          {(sortRelease === 'ASC' || !sortRelease) && (
+          {!sortRelease && (
             <_StyledLink href='/?sortRelease=DSC'>
-              <CalendarDaysIcon /> <ArrowUpIcon />
+              <CalendarDaysIcon />
             </_StyledLink>
           )}
           {sortRelease === 'DSC' && (
             <_StyledLink href='/?sortRelease=ASC'>
               <CalendarDaysIcon /> <ArrowDownIcon />
+            </_StyledLink>
+          )}
+          {sortRelease === 'ASC' && (
+            <_StyledLink href='/?sortRelease=DSC'>
+              <CalendarDaysIcon /> <ArrowUpIcon />
             </_StyledLink>
           )}
         </_ControlsSort>
@@ -170,8 +178,7 @@ const _Controls = styled.div`
 
 const _ControlsSort = styled.div`
   display: flex;
-  gap: 0.5rem;
-
+  gap: 1rem;
   & svg {
     width: 24px;
   }
@@ -185,9 +192,12 @@ const _ControlsFilter = styled.div`
 `;
 
 export const _StyledLink = styled(Link)`
+  width: 4rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  gap: 0.25rem;
   font-weight: bold;
+
+  &:hover {
+    opacity: 0.75;
+  }
 `;
