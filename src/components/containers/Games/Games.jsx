@@ -4,13 +4,18 @@ import { Spinner } from '../../Spinner/Spinner';
 import { useInView } from 'react-intersection-observer';
 import { fetchGames } from '@/actions/fetchGames';
 import { delay } from '@/utils/delay';
-import { StyledLink } from '@/components/Greeting';
 import Link from 'next/link';
 import { sortByDate } from '@/utils/sortByDate';
 import { CustomDropdown } from '../../Select/CustomDropdown';
 import { SearchInput } from '../../SearchInput/SearchInput';
 import { GamesList } from '../../GamesList/GamesList';
 import styled from 'styled-components';
+import {
+  ArrowDownIcon,
+  ArrowUpIcon,
+  CalendarDaysIcon,
+  HandThumbUpIcon,
+} from '@heroicons/react/24/solid';
 
 export function Games({ initialGames, platforms, sortRating, sortRelease }) {
   const [games, setGames] = useState(initialGames);
@@ -113,10 +118,27 @@ export function Games({ initialGames, platforms, sortRating, sortRelease }) {
         </_ControlsFilter>
 
         <_ControlsSort>
-          <Link href='/?sortRating=ASC'>Rating ⬆️</Link>
-          <Link href='/?sortRating=DSC'>Rating ⬇️</Link>
-          <StyledLink href='/?sortRelease=ASC'> Release ⬆️</StyledLink>
-          <StyledLink href='/?sortRelease=DSC'> Release ⬇️</StyledLink>
+          {(sortRating === 'ASC' || !sortRating) && (
+            <_StyledLink href='/?sortRating=DSC'>
+              <HandThumbUpIcon /> <ArrowDownIcon />
+            </_StyledLink>
+          )}
+          {sortRating === 'DSC' && (
+            <_StyledLink href='/?sortRating=ASC'>
+              <HandThumbUpIcon /> <ArrowUpIcon />
+            </_StyledLink>
+          )}
+
+          {(sortRelease === 'ASC' || !sortRelease) && (
+            <_StyledLink href='/?sortRelease=DSC'>
+              <CalendarDaysIcon /> <ArrowUpIcon />
+            </_StyledLink>
+          )}
+          {sortRelease === 'DSC' && (
+            <_StyledLink href='/?sortRelease=ASC'>
+              <CalendarDaysIcon /> <ArrowDownIcon />
+            </_StyledLink>
+          )}
         </_ControlsSort>
       </_Controls>
 
@@ -141,12 +163,18 @@ const _Wrapper = styled.section`
 const _Controls = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   align-items: center;
+  color: #192655;
 `;
 
 const _ControlsSort = styled.div`
   display: flex;
   gap: 0.5rem;
+
+  & svg {
+    width: 24px;
+  }
 `;
 
 const _ControlsFilter = styled.div`
@@ -154,4 +182,12 @@ const _ControlsFilter = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+`;
+
+export const _StyledLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-weight: bold;
 `;

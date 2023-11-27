@@ -3,6 +3,8 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 
+import { HandThumbUpIcon, CalendarDaysIcon } from '@heroicons/react/24/solid';
+
 export function GameCard({ name, background_image, rating, released }) {
   return (
     <Wrapper>
@@ -13,28 +15,57 @@ export function GameCard({ name, background_image, rating, released }) {
         alt={name}
       />
       <Title>{name}</Title>
-      <Rating>{rating}</Rating>
-      <ReleaseDate>{released}</ReleaseDate>
+      <_InfoWrapper>
+        <_Rating>
+          <HandThumbUpIcon />
+          {rating}
+        </_Rating>
+        <_ReleaseDate>
+          <CalendarDaysIcon />
+          {released}
+        </_ReleaseDate>
+      </_InfoWrapper>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.article`
-  border: 1px solid white;
   padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 `;
 
 const Title = styled.h2`
   font-size: 1em;
-  color: red;
+  color: #192655;
 `;
 
-const Rating = styled.p`
+const _Rating = styled.p`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   font-size: 1em;
-  color: green;
+  color: #190482;
+
+  svg {
+    width: 24px;
+  }
 `;
 
-const ReleaseDate = styled.span`
+const _ReleaseDate = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   font-size: 1em;
-  color: blue;
+  color: #3876bf;
+
+  svg {
+    width: 24px;
+  }
+`;
+
+const _InfoWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;

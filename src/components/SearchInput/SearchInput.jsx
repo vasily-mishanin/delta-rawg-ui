@@ -68,6 +68,9 @@ const _SearchButton = styled.button`
 
   &:hover {
     cursor: pointer;
+
+    background-color: #192655;
+    color: #fff6f6;
   }
 
   svg {
