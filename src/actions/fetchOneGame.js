@@ -10,6 +10,12 @@ export async function fetchOneGame(id) {
     }
     const gameURL = `${API_URL}/games/${id}?key=${API_KEY}`;
     const response = await fetch(gameURL);
+
+    if (!response.ok) {
+      console.error('No game found by this id: ' + id);
+      return null;
+    }
+
     const data = await response.json();
     const { name, description_raw, website } = data;
     const game = { name, description: description_raw, website };

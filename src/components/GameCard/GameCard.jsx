@@ -46,7 +46,8 @@ const _Rating = styled.p`
   align-items: center;
   gap: 0.75rem;
   font-size: 1em;
-  color: #190482;
+  color: #435585;
+  opacity: 0.75;
 
   svg {
     width: 24px;
@@ -59,6 +60,7 @@ const _ReleaseDate = styled.span`
   gap: 0.75rem;
   font-size: 1em;
   color: #3876bf;
+  opacity: 0.75;
 
   svg {
     width: 24px;

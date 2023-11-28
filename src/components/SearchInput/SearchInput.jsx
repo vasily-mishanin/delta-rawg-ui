@@ -14,9 +14,14 @@ export function SearchInput({ placeholder, onSearch }) {
     setValue(value);
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      onSearch(value);
+    }
+  };
+
   const handleSearchClick = () => {
     onSearch(value);
-    console.log(value);
   };
 
   return (
@@ -25,6 +30,7 @@ export function SearchInput({ placeholder, onSearch }) {
         type='search'
         placeholder={placeholder}
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
         value={value}
       />
       <_SearchButton onClick={handleSearchClick}>
