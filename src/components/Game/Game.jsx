@@ -1,6 +1,6 @@
 'use client';
 
-import { Slider } from '@/components/slider/slider';
+import { Slider } from '@/components/Slider/Slider';
 import styled from 'styled-components';
 import Link from 'next/link';
 
