@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import styled from 'styled-components';
 
-export function Slider({ images, gameName, gap = 10 }) {
+export function GameSlider({ images, gameName, gap = 10 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [length, setLength] = useState(images.length);
   const [innerWidth, setInnerWidth] = useState(null);
@@ -139,16 +139,14 @@ const _ArrowLeft = styled.button`
 
   svg {
     color: #e48f45;
-    opacity: ${(props) => (props.$currentIndex <= 0 ? 0.75 : 1)};
+    opacity: ${(props) => (props.$currentIndex <= 0 ? 0.2 : 1)};
   }
 
   &:hover {
     cursor: pointer;
-    background-color: gray;
-    opacity: 0.5;
 
     svg {
-      scale: 1.1;
+      scale: 1.2;
     }
   }
 `;
@@ -169,17 +167,14 @@ const _ArrowRight = styled.button`
 
   svg {
     color: #e48f45;
-    opacity: ${(props) =>
-      props.$currentIndex >= props.$length - 1 ? 0.75 : 1};
+    opacity: ${(props) => (props.$currentIndex >= props.$length - 1 ? 0.2 : 1)};
   }
 
   &:hover {
     cursor: pointer;
-    background-color: gray;
-    opacity: 0.5;
 
     svg {
-      scale: 1.1;
+      scale: 1.2;
     }
   }
 `;
