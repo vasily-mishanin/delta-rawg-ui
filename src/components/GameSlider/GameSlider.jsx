@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import styled from 'styled-components';
 
-export function Slider({ images, gameName, gap = 10 }) {
+export function GameSlider({ images, gameName, gap = 10 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [length, setLength] = useState(images.length);
   const [innerWidth, setInnerWidth] = useState(null);

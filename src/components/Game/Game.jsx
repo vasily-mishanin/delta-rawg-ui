@@ -1,6 +1,6 @@
 'use client';
 
-import { Slider } from '@/components/Slider/Slider';
+import { GameSlider } from '@/components/GameSlider/GameSlider';
 import styled from 'styled-components';
 import Link from 'next/link';
 
@@ -9,7 +9,7 @@ export function Game({ game, screenshots }) {
     <_Wtapper>
       <_StyledLink href='/'>← Back to games</_StyledLink>
       <_GameTitle>{game.name}</_GameTitle>
-      <Slider images={screenshots} gameName={game.name} />
+      <GameSlider images={screenshots} gameName={game.name} />
       <_Description>{game.description}</_Description>
       <_Website href={game.website}>{game.website}</_Website>
     </_Wtapper>
