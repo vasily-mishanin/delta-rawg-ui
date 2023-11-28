@@ -49,4 +49,10 @@ const _Website = styled.a`
 const _StyledLink = styled(Link)`
   color: #190482;
   font-size: 0.75rem;
+  font-weight: bold;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
 `;
